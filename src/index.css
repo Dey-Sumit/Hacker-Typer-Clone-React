@@ -17,6 +17,9 @@ body {
   overflow-y: auto;
   padding: 12px;
 }
+#container:focus {
+  outline: none;
+}
 
 #source {
   color: #2ad400;

@@ -7,6 +7,7 @@ function App() {
   const [sourceCode, setSourceCode] = useState("");
   const [content, setContent] = useState("");
   const [messageType, setMessageType] = useState("denied");
+  const containerRef = useRef();
 
   const scrollToRef = useRef();
 
@@ -17,6 +18,7 @@ function App() {
 
   const [isLocked, setIsLocked] = useState(false);
   useEffect(() => {
+    containerRef.current.focus();
     fetch("code.txt")
       .then((r) => r.text())
       .then((text) => {
@@ -57,6 +59,7 @@ function App() {
       <div
         id="container"
         onKeyDown={handleKeyDown}
+        ref={containerRef}
         tabIndex={0}
         className={isLocked ? "blurred" : ""}
       >
